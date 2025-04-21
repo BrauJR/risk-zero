@@ -1,11 +1,15 @@
-// next.config.ts
+/** @type {import('next').NextConfig} */
+
 import withMDX from '@next/mdx'
 
 const nextConfig = {
-  pageExtensions: ['ts', 'tsx', 'mdx'],  // Permite que Next.js reconozca las páginas .mdx
+  experimental: {
+    appDir: true,
+  },
+  pageExtensions: ['ts', 'tsx', 'mdx'], // Permite .mdx como extensión de página
 }
 
 export default withMDX({
-  ...nextConfig,
-  extension: /\.mdx$/,  // Asegúrate de que MDX esté habilitado
+  ...nextConfig, // Aquí fusionamos la configuración
+  extension: /\.mdx$/, // Especificamos la extensión para MDX
 })
