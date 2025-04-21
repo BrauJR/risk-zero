@@ -38,18 +38,10 @@ const getPosts = () => {
   return allPosts
 }
 
-export async function getStaticProps() {
+export default async function BlogPage() {
   // Cargar los posts solo en el servidor durante la construcción
   const posts = getPosts()
 
-  return {
-    props: {
-      posts,
-    },
-  }
-}
-
-export default function BlogPage({ posts }: { posts: Array<{ id: string, title: string, date: string }> }) {
   return (
     <PageWrapper>
       <main className="min-h-screen p-10">
