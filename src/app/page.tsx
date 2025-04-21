@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 
 export default function Home() {
   return (
@@ -17,12 +18,12 @@ export default function Home() {
         Aprende a detectar estafas, navegar seguro y proteger tus datos en línea.
       </p>
       <div className="mt-8">
-        <a
+        <Link
           href="/blog"
           className="bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-3 rounded-md transition"
         >
           Leer consejos
-        </a>
+        </Link>
       </div>
     </motion.main>
   )
