@@ -3,7 +3,7 @@ export default function Contacto() {
       <main className="min-h-screen p-10">
         <h1 className="text-3xl font-bold mb-6">Contacto</h1>
         <form
-          action="https://formsubmit.co/tuemail@gmail.com"
+          action="https://formsubmit.co/jrm4912@gmail.com"
           method="POST"
           className="max-w-md space-y-4"
         >
