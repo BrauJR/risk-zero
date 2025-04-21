@@ -9,7 +9,7 @@ import Link from 'next/link'
 import PageWrapper from '../components/PageWrapper'
 
 // Esta función lee los archivos del servidor y retorna los posts
-const getPosts = async () => {
+const getPosts = () => {
   const postsDirectory = path.join(process.cwd(), 'src/app/blog/posts')
   const fileNames = fs.readdirSync(postsDirectory)
 
@@ -38,9 +38,18 @@ const getPosts = async () => {
   return allPosts
 }
 
-export default async function BlogPage() {
-  const posts = await getPosts()  // Cargar los posts en el servidor
+export async function getStaticProps() {
+  // Cargar los posts solo en el servidor durante la construcción
+  const posts = getPosts()
 
+  return {
+    props: {
+      posts,
+    },
+  }
+}
+
+export default function BlogPage({ posts }: { posts: Array<{ id: string, title: string, date: string }> }) {
   return (
     <PageWrapper>
       <main className="min-h-screen p-10">
